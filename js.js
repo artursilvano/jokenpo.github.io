@@ -30,5 +30,8 @@ function jogar(escolha){
             }
         }
     }
-    return resu.innerHTML=`${sym[escolha]} vs ${sym[rand]}</br>${resultado[r]}`
+resu.innerHTML="Jo..."
+setTimeout(() => {  resu.innerHTML="Ken..."; }, 500);
+setTimeout(() => {  resu.innerHTML="Po!!!"; }, 1000);
+setTimeout(() => {  resu.innerHTML=`${sym[escolha]} vs ${sym[rand]}</br>${resultado[r]}`; }, 1500); 
 }
