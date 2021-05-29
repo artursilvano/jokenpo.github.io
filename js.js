@@ -1,54 +1,34 @@
-var r = ''
+var r = 0
+var resultado = ["Ganhou","Perdeu","Empate"]
 var sym = ['🗿','📜','✂️']
-var resu = document.querySelector("p#res")
-var pedra = document.querySelector("div#ped")
-var papel = document.querySelector("div#pap")
-var tesoura = document.querySelector("div#tes")
+var resu = document.querySelector("div#res")
+var pedra = document.querySelector("input#ped")
+var papel = document.querySelector("input#pap")
+var tesoura = document.querySelector("input#tes")
 function jogar(escolha){
-    let rand = Math.floor(Math.random() * 3 + 1)
+    let rand = Math.floor(Math.random() * 3)
     if (escolha==rand){
-        r=`Empate`
+        r=2
     }else{
-        if (escolha==1){
-            if (rand==2){
-                r='Perdeu'
+        if (escolha==0){
+            if (rand==1){
+                r=1
             }else{
-                r='Ganhou'
+                r=0
+            }
+        }else if (escolha==1){
+            if (rand==2){
+                r=1
+            }else{
+                r=0
             }
         }else if (escolha==2){
-            if (rand==3){
-                r='Perdeu'
+            if (rand==0){
+                r=1
             }else{
-                r='Ganhou'
-            }
-        }else if (escolha==3){
-            if (rand==1){
-                r='Perdeu'
-            }else{
-                r='Ganhou'
+                r=0
             }
         }
     }
-    return resu.innerHTML=`${sym[escolha-1]} vs ${sym[rand-1]}\n${r}`
-}
-pedra.addEventListener('click', clickpe)
-papel.addEventListener('click', clickpa)
-tesoura.addEventListener('click', clickte)
-function clickpe(){
-    papel.style.backgroundColor=`white`
-    tesoura.style.backgroundColor=`white`
-    pedra.style.backgroundColor=`blue`
-    jogar(1)
-}
-function clickpa(){
-    pedra.style.backgroundColor=`white`
-    tesoura.style.backgroundColor=`white`
-    papel.style.backgroundColor=`red`
-    jogar(2)
-}
-function clickte(){
-    pedra.style.backgroundColor=`white`
-    papel.style.backgroundColor=`white`
-    tesoura.style.backgroundColor=`yellow`
-    jogar(3)
+    return resu.innerHTML=`${sym[escolha]} vs ${sym[rand]}</br>${resultado[r]}`
 }
