@@ -34,9 +34,8 @@ resu.innerHTML="Jo..."
 await new Promise(r => setTimeout(r, 1000));
 resu.innerHTML="Ken..."
 await new Promise(r => setTimeout(r, 1000));
-resu.innerHTML="Po!!!
+resu.innerHTML="Po!!!"
 await new Promise(r => setTimeout(r, 1000));
 resu.innerHTML=`${sym[escolha]} vs ${sym[rand]}</br>${resultado[r]}`
-
 await new Promise(r => setTimeout(r, 1000));
 }
