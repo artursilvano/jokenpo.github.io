@@ -31,7 +31,12 @@ function jogar(escolha){
         }
     }
 resu.innerHTML="Jo..."
-setTimeout(() => {  resu.innerHTML="Ken..."; }, 500);
-setTimeout(() => {  resu.innerHTML="Po!!!"; }, 1000);
-setTimeout(() => {  resu.innerHTML=`${sym[escolha]} vs ${sym[rand]}</br>${resultado[r]}`; }, 1500); 
+await new Promise(r => setTimeout(r, 1000));
+resu.innerHTML="Ken..."
+await new Promise(r => setTimeout(r, 1000));
+resu.innerHTML="Po!!!
+await new Promise(r => setTimeout(r, 1000));
+resu.innerHTML=`${sym[escolha]} vs ${sym[rand]}</br>${resultado[r]}`
+
+await new Promise(r => setTimeout(r, 1000));
 }
