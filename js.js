@@ -5,6 +5,12 @@ var resu = document.querySelector("div#res")
 var pedra = document.querySelector("input#ped")
 var papel = document.querySelector("input#pap")
 var tesoura = document.querySelector("input#tes")
+function sleep(millis){
+    var date = new Date();
+    var curDate = null;
+    do { curDate = new Date(); }
+    while(curDate-date < millis);
+}
 function jogar(escolha){
     let rand = Math.floor(Math.random() * 3)
     if (escolha==rand){
@@ -31,11 +37,11 @@ function jogar(escolha){
         }
     }
 resu.innerHTML="Jo..."
-await new Promise(r => setTimeout(r, 1000));
+sleep(1000)
 resu.innerHTML="Ken..."
-await new Promise(r => setTimeout(r, 1000));
+sleep(1000)
 resu.innerHTML="Po!!!"
-await new Promise(r => setTimeout(r, 1000));
+sleep(1000)
 resu.innerHTML=`${sym[escolha]} vs ${sym[rand]}</br>${resultado[r]}`
-await new Promise(r => setTimeout(r, 1000));
+sleep(1000)
 }
