@@ -1,37 +1,133 @@
+html, body{
+    height: 100%;
+}
 body{
-    background-color: rgb(78, 24, 24);
+    background-color: gray;
     -webkit-user-select: none;
     user-select: none;
-}
-header{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Arial;
     color: white;
+}
+
+
+header{
     text-align: center;
     font-size: 70px;
     margin-top: 10px;
 }
+
+
 section{
     font: normal 70px Arial;
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     border-radius: 30px;
     padding: 10px;
     width: 300px;
     margin: auto;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.466);
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 input{
     width: 130px;
     height: 130px;
     font-size: 80px;
-    background-color: rgb(255, 255, 255);
+    background-color: black;
     border: hidden;
     border-radius: 20px;
     margin: 5px;  
 }
-div#res{
-    font-size: 50px;
-}
 input:hover{
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(39, 39, 39);
+}
+
+#res{
+    border-radius: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    background-color: transparent;
+    font-size: 50px;
+    height: 140px;
+}
+
+#divres{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    margin: auto;
+    background-color: transparent;
+    font-size: 50px;
+    text-align: center;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 0px;
+}
+#scoretab{ 
+    display: flex;
+    flex-direction: row;
+    background: black;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    height: 50px;
+    font-size: 40px;
+    justify-content: center;
+}
+
+#tab{
+    display: flex;
+    flex-direction: row;
+    background: black;
+    font-size: 30px;
+}
+#utab{
+    width: 50%;
+    justify-content: left;
+    left: 0%;
+    text-align: center;
+}
+#ltab{
+    width: 50%;
+    justify-content: right;
+    right: 0%;
+    text-align: center;
+}
+
+#ptab{
+    font-size: 60px;
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    margin: 0px;
+    background-color: black;
+    color: black;
+    text-align: center;
+}
+#user{
+    margin: 5px;
+    background-color: gray;
+    width: 35%;
+    border-radius: 40px;
+    justify-content: left;
+    margin: auto;
+}
+#local{
+    color: black;
+    margin: 5px;
+    background-color: gray;
+    width: 35%;
+    border-radius: 40px;
+    justify-content: center;
+    margin: auto;
 }

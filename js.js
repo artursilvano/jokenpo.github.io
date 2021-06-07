@@ -1,17 +1,22 @@
-var r = 0
-var resultado = ["Ganhou","Perdeu","Empate"]
-var sym = ['🗿','📜','✂️']
-var resu = document.querySelector("div#res")
-var pedra = document.querySelector("input#ped")
-var papel = document.querySelector("input#pap")
-var tesoura = document.querySelector("input#tes")
-function sleep(millis){
-    var date = new Date();
-    var curDate = null;
-    do { curDate = new Date(); }
-    while(curDate-date < millis);
+if (!localStorage.getItem('up') && !localStorage.getItem('lp')) {
+    localStorage.setItem('up', 0)
+    localStorage.setItem('lp', 0)
 }
+let r = null
+const resultado = ["Ganhou","Perdeu","Empate"]
+const sym = ['🗿','📜','✂️']
+const sec2 = document.querySelector("#res")
+const resu = document.querySelector("#divres")
+const pedra = document.querySelector("#ped")
+const papel = document.querySelector("#pap")
+const tesoura = document.querySelector("#tes")
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#user').innerHTML=localStorage.getItem('up')
+    document.querySelector('#local').innerHTML=localStorage.getItem('lp')
+})
 function jogar(escolha){
+    let up = localStorage.getItem('up')
+    let lp = localStorage.getItem('lp')
     let rand = Math.floor(Math.random() * 3)
     if (escolha==rand){
         r=2
@@ -19,29 +24,48 @@ function jogar(escolha){
         if (escolha==0){
             if (rand==1){
                 r=1
+                lp++
             }else{
                 r=0
+                up++
             }
         }else if (escolha==1){
             if (rand==2){
                 r=1
+                lp++
             }else{
                 r=0
+                up++
             }
         }else if (escolha==2){
             if (rand==0){
                 r=1
+                lp++
             }else{
                 r=0
+                up++
             }
         }
     }
+document.querySelector('#ped').disabled = true
+document.querySelector('#pap').disabled = true
+document.querySelector('#tes').disabled = true
+sec2.style.backgroundColor = 'black'
+resu.style.fontSize= '90px'
 resu.innerHTML="Jo..."
-sleep(1000)
-resu.innerHTML="Ken..."
-sleep(1000)
-resu.innerHTML="Po!!!"
-sleep(1000)
-resu.innerHTML=`${sym[escolha]} vs ${sym[rand]}</br>${resultado[r]}`
-sleep(1000)
+setTimeout(() =>{resu.innerHTML="Ken..."}, 500)
+setTimeout(() =>{resu.innerHTML="Po!!!"}, 1000)
+setTimeout(() =>{
+    resu.innerHTML=`${sym[escolha]} vs ${sym[rand]}</br>${resultado[r]}`
+    resu.style.fontSize= '50px'
+}, 1500)
+setTimeout(() =>{
+    document.querySelector('#ped').disabled = false
+    document.querySelector('#pap').disabled = false
+    document.querySelector('#tes').disabled = false
+    document.querySelector('#user').innerHTML=up
+    document.querySelector('#local').innerHTML=lp
+    localStorage.setItem('up', up)
+    localStorage.setItem('lp', lp)
+}, 1700)
 }
