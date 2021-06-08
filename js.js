@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#local').innerHTML=localStorage.getItem('lp')
 })
 function jogar(escolha){
+    document.querySelector('#ped').disabled = true
+    document.querySelector('#pap').disabled = true
+    document.querySelector('#tes').disabled = true
     let up = localStorage.getItem('up')
     let lp = localStorage.getItem('lp')
     let rand = Math.floor(Math.random() * 3)
@@ -47,10 +50,9 @@ function jogar(escolha){
             }
         }
     }
-document.querySelector('#ped').disabled = true
-document.querySelector('#pap').disabled = true
-document.querySelector('#tes').disabled = true
 sec2.style.backgroundColor = 'black'
+document.querySelector('#user').style.textDecoration = 'none'
+document.querySelector('#local').style.textDecoration = 'none'
 resu.style.fontSize= '90px'
 resu.innerHTML="Jo..."
 setTimeout(() =>{resu.innerHTML="Ken..."}, 500)
@@ -63,8 +65,13 @@ setTimeout(() =>{
     document.querySelector('#ped').disabled = false
     document.querySelector('#pap').disabled = false
     document.querySelector('#tes').disabled = false
-    document.querySelector('#user').innerHTML=up
-    document.querySelector('#local').innerHTML=lp
+    if (r==0){
+        document.querySelector('#user').innerHTML=up
+        document.querySelector('#user').style.textDecoration = 'underline'
+    }else if (r==1){
+        document.querySelector('#local').innerHTML=lp
+        document.querySelector('#local').style.textDecoration = 'underline'
+    }
     localStorage.setItem('up', up)
     localStorage.setItem('lp', lp)
 }, 1700)
