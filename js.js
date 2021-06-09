@@ -15,9 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#local').innerHTML=localStorage.getItem('lp')
 })
 function jogar(escolha){
-    document.querySelector('#ped').disabled = true
-    document.querySelector('#pap').disabled = true
-    document.querySelector('#tes').disabled = true
+    document.querySelectorAll('input').forEach (input => input.disabled = true)  
     let up = localStorage.getItem('up')
     let lp = localStorage.getItem('lp')
     let rand = Math.floor(Math.random() * 3)
@@ -51,8 +49,7 @@ function jogar(escolha){
         }
     }
 sec2.style.backgroundColor = 'black'
-document.querySelector('#user').style.textDecoration = 'none'
-document.querySelector('#local').style.textDecoration = 'none'
+document.querySelectorAll('.sc').forEach (div => div.style.textDecoration = 'none')
 resu.style.fontSize= '90px'
 resu.innerHTML="Jo..."
 setTimeout(() =>{resu.innerHTML="Ken..."}, 500)
@@ -62,9 +59,7 @@ setTimeout(() =>{
     resu.style.fontSize= '50px'
 }, 1500)
 setTimeout(() =>{
-    document.querySelector('#ped').disabled = false
-    document.querySelector('#pap').disabled = false
-    document.querySelector('#tes').disabled = false
+    document.querySelectorAll('input').forEach(input => input.disabled = false)
     if (r==0){
         document.querySelector('#user').innerHTML=up
         document.querySelector('#user').style.textDecoration = 'underline'
