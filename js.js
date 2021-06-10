@@ -24,27 +24,21 @@ function jogar(escolha){
     }else{
         if (escolha==0){
             if (rand==1){
-                r=1
-                lp++
+                r=1               
             }else{
                 r=0
-                up++
             }
         }else if (escolha==1){
             if (rand==2){
                 r=1
-                lp++
             }else{
                 r=0
-                up++
             }
         }else if (escolha==2){
             if (rand==0){
                 r=1
-                lp++
             }else{
                 r=0
-                up++
             }
         }
     }
@@ -61,13 +55,15 @@ setTimeout(() =>{
 setTimeout(() =>{
     document.querySelectorAll('input').forEach(input => input.disabled = false)
     if (r==0){
+        up++
         document.querySelector('#user').innerHTML=up
         document.querySelector('#user').style.textDecoration = 'underline'
-    }else if (r==1){
+        localStorage.setItem('up', up)
+    }else if (r==1){ 
+        lp++
         document.querySelector('#local').innerHTML=lp
         document.querySelector('#local').style.textDecoration = 'underline'
+        localStorage.setItem('lp', lp)
     }
-    localStorage.setItem('up', up)
-    localStorage.setItem('lp', lp)
 }, 1700)
 }
