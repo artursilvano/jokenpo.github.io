@@ -3,8 +3,6 @@ html, body{
 }
 body{
     background-color: gray;
-    -webkit-user-select: none;
-    user-select: none;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -81,6 +79,7 @@ input{
 }
 input:hover{
     background-color: rgb(63, 0, 0);
+    cursor: pointer;
 }
 
 #res{
