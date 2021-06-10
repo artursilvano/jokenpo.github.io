@@ -3,8 +3,6 @@ html, body{
 }
 body{
     background-color: gray;
-    -webkit-user-select: none;
-    user-select: none;
     display: flex;
     flex-direction: column;
     margin: 0;
